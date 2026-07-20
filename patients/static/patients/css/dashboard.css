@@ -1,0 +1,355 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #eef5f9;
+      min-height: 100vh;
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    /* main dashboard card */
+    .dashboard {
+      max-width: 1400px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 3rem;
+      padding: 2rem 2.2rem 2.5rem;
+      box-shadow: 0 30px 60px -20px rgba(0, 40, 60, 0.30),
+                  0 8px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* ---------- HEADER ---------- */
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.5rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .header-left i {
+      font-size: 2.2rem;
+      color: #1d7a9c;
+      background: rgba(29, 122, 156, 0.12);
+      padding: 0.5rem;
+      border-radius: 18px;
+    }
+
+    .header-left h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0b2d3d;
+      letter-spacing: -0.3px;
+    }
+
+    .header-left span {
+      font-weight: 400;
+      color: #3b6c80;
+      font-size: 0.9rem;
+      margin-left: 0.3rem;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: white;
+      padding: 0.4rem 1rem 0.4rem 0.8rem;
+      border-radius: 60px;
+      box-shadow: 0 4px 10px rgba(0, 20, 30, 0.04);
+      border: 1px solid #dae9f2;
+    }
+
+    .user-badge i {
+      font-size: 1.4rem;
+      color: #1a6f8d;
+      background: #e1f0f7;
+      padding: 0.3rem;
+      border-radius: 50%;
+    }
+
+    .user-badge .user-name {
+      font-weight: 600;
+      color: #0c3447;
+      font-size: 1rem;
+    }
+
+    .user-badge .user-role {
+      font-size: 0.7rem;
+      color: #558296;
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .btn-icon {
+      background: white;
+      border: 1px solid #dae9f2;
+      padding: 0.5rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1b4b5e;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .btn-icon i {
+      font-size: 0.9rem;
+    }
+
+    .btn-icon:hover {
+      background: #f2f9ff;
+      border-color: #98c2d8;
+      transform: translateY(-1px);
+    }
+
+    .btn-icon.logout {
+      color: #b13e4b;
+      border-color: #f0d6d9;
+    }
+    .btn-icon.logout:hover {
+      background: #fef0f0;
+      border-color: #dba6ae;
+    }
+    .btn-icon.danger {
+      color: #b13e4b;
+      border-color: #f0d6d9;
+    }
+    .btn-icon.danger:hover {
+      background: #fef0f0;
+      border-color: #dba6ae;
+    }
+
+    /* ---------- CARDS GRID ---------- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.2rem 0.9rem;
+      box-shadow: 0 6px 18px rgba(0, 30, 50, 0.04);
+      border: 1px solid #e4eff6;
+      transition: 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(0, 40, 60, 0.06);
+    }
+
+    .stat-icon {
+      background: #e8f3fa;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1b7a9c;
+      font-size: 1.4rem;
+    }
+
+    .stat-content {
+      flex: 1;
+    }
+    .stat-content .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #44778d;
+      font-weight: 500;
+    }
+    .stat-content .value {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #09303f;
+      line-height: 1.2;
+    }
+
+    /* ---------- TWO COLUMN LAYOUT ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 860px) {
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+    }
+
+    .panel {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid #e4eff6;
+      box-shadow: 0 6px 18px rgba(0, 30, 50, 0.02);
+    }
+
+    .panel-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0e3649;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1.5px solid #eaf2f8;
+      padding-bottom: 0.6rem;
+    }
+    .panel-title i {
+      color: #1f7f9f;
+      font-size: 1.1rem;
+    }
+
+    /* appointment list */
+    .appointment-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0.1rem;
+      border-bottom: 1px solid #f0f6fb;
+      font-size: 0.9rem;
+    }
+    .appointment-item:last-child {
+      border-bottom: 0;
+    }
+    .appointment-item .doc {
+      font-weight: 500;
+      color: #103d52;
+    }
+    .appointment-item .date {
+      color: #407184;
+      font-size: 0.8rem;
+    }
+
+    /* prescription & medicine list */
+    .rx-item, .med-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.35rem 0.1rem;
+      border-bottom: 1px solid #f0f6fb;
+      font-size: 0.9rem;
+    }
+    .rx-item .name, .med-item .name {
+      font-weight: 500;
+      color: #1a4356;
+    }
+    .rx-item .meta, .med-item .meta {
+      color: #407184;
+      font-size: 0.8rem;
+    }
+
+    .bill-summary {
+      background: #f4faff;
+      border-radius: 1.2rem;
+      padding: 0.8rem 1rem;
+      margin: 0.6rem 0 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #0c384b;
+    }
+    .bill-summary span:last-child {
+      color: #0d5d7a;
+    }
+
+    /* chart container */
+    .chart-container {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1rem 0.8rem 0.5rem;
+      margin-top: 0.6rem;
+      border: 1px solid #e4eff6;
+    }
+
+    canvas {
+      max-height: 180px;
+      width: 100% !important;
+    }
+
+    .doctor-fee-row {
+      display: flex;
+      justify-content: space-between;
+      background: #f4faff;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1rem;
+      margin: 0.7rem 0 0.2rem;
+      font-weight: 500;
+      color: #0f3b4e;
+    }
+
+    .doctor-fee-row span:last-child {
+      color: #0d5d7a;
+    }
+
+    /* delete account special */
+    .delete-section {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: flex-end;
+      border-top: 1px solid #dce9f2;
+      padding-top: 1.2rem;
+    }
+
+    /* responsiveness */
+    @media (max-width: 500px) {
+      .dashboard {
+        padding: 1.2rem;
+      }
+      .header-left h1 {
+        font-size: 1.3rem;
+      }
+      .user-badge .user-name {
+        font-size: 0.8rem;
+      }
+      .stat-card {
+        padding: 0.8rem;
+      }
+      .stat-content .value {
+        font-size: 1.3rem;
+      }
+    }

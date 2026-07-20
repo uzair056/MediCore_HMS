@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Dashboard · MediCare</title>
+  <!-- Fonts & Icons -->
+        <link rel="stylesheet" href="{% static 'patients/css/dashboard.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Chart.js -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ========== HEADER ========== -->
+  <header class="dashboard-header">
+    <div class="header-left">
+      <i class="fas fa-hospital-user"></i>
+      <h1>Patient <span>Dashboard</span></h1>
+    </div>
+    <div class="header-right">
+      <div class="user-badge">
+        <i class="fas fa-user-circle"></i>
+        <span class="user-name">Ahmed Raza</span>
+        <span class="user-role">• ID: #P-1289</span>
+      </div>
+      <div class="action-buttons">
+        <button class="btn-icon logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        <button class="btn-icon danger" id="deleteAccountBtn"><i class="fas fa-trash-can"></i> Delete Account?</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== STATS CARDS ========== -->
+  <section class="stats-grid">
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-user-md"></i></div><div class="stat-content"><div class="label">Assigned Doctor</div><div class="value">Dr. Samina</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-calendar-check"></i></div><div class="stat-content"><div class="label">Appointments</div><div class="value">6</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-prescription-bottle"></i></div><div class="stat-content"><div class="label">Prescriptions</div><div class="value">4</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-pills"></i></div><div class="stat-content"><div class="label">Medicines</div><div class="value">7</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-file-invoice-dollar"></i></div><div class="stat-content"><div class="label">Total Bills</div><div class="value">$1,240</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-stethoscope"></i></div><div class="stat-content"><div class="label">Doctor Fees</div><div class="value">$320</div></div></div>
+  </section>
+
+  <!-- ========== TWO COLUMN (LEFT: appointments, prescriptions, medicines | RIGHT: bills, chart, fees) ========== -->
+  <div class="two-col">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+      <!-- Appointments -->
+      <div class="panel">
+        <div class="panel-title"><i class="fas fa-calendar-alt"></i> All Appointments</div>
+        <div class="appointment-item"><span class="doc">Dr. Samina Ali</span><span class="date">Mar 12, 2026 · 10:30</span></div>
+        <div class="appointment-item"><span class="doc">Dr. Usman Malik</span><span class="date">Mar 18, 2026 · 14:00</span></div>
+        <div class="appointment-item"><span class="doc">Dr. Nadia Khan</span><span class="date">Mar 25, 2026 · 09:15</span></div>
+        <div class="appointment-item"><span class="doc">Dr. Farhan Ahmed</span><span class="date">Apr 02, 2026 · 11:45</span></div>
+        <div class="appointment-item"><span class="doc">Dr. Samina Ali</span><span class="date">Apr 10, 2026 · 16:00</span></div>
+        <div class="appointment-item"><span class="doc">Dr. Hina Tariq</span><span class="date">Apr 18, 2026 · 08:30</span></div>
+      </div>
+
+      <!-- Prescriptions & Medicines (inline) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.2rem;">
+        <div class="panel">
+          <div class="panel-title"><i class="fas fa-prescription"></i> Prescriptions</div>
+          <div class="rx-item"><span class="name">Amoxicillin</span><span class="meta">500mg · 2x</span></div>
+          <div class="rx-item"><span class="name">Lisinopril</span><span class="meta">10mg · 1x</span></div>
+          <div class="rx-item"><span class="name">Metformin</span><span class="meta">850mg · 2x</span></div>
+          <div class="rx-item"><span class="name">Atorvastatin</span><span class="meta">20mg · 1x</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><i class="fas fa-capsules"></i> Medicines</div>
+          <div class="med-item"><span class="name">Panadol</span><span class="meta">10 tabs</span></div>
+          <div class="med-item"><span class="name">Brufen</span><span class="meta">400mg · 6 tabs</span></div>
+          <div class="med-item"><span class="name">Zyrtec</span><span class="meta">10mg · 5 tabs</span></div>
+          <div class="med-item"><span class="name">Omeprazole</span><span class="meta">20mg · 7 caps</span></div>
+          <div class="med-item"><span class="name">Ventolin</span><span class="meta">inhaler</span></div>
+          <div class="med-item"><span class="name">Augmentin</span><span class="meta">625mg · 6 tabs</span></div>
+          <div class="med-item"><span class="name">Nurofen</span><span class="meta">200mg · 8 tabs</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <!-- Bills + Doctor Fees combined -->
+      <div class="panel">
+        <div class="panel-title"><i class="fas fa-file-invoice"></i> Billing Summary</div>
+        <div class="bill-summary"><span>Total Bills</span><span>$1,240.00</span></div>
+        <div class="doctor-fee-row"><span><i class="fas fa-stethoscope" style="margin-right: 6px;"></i>Doctor Fees</span><span>$320.00</span></div>
+        <div style="font-size:0.8rem; color:#44778d; margin-top: 0.3rem; text-align: right; border-top: 1px solid #eaf2f8; padding-top: 0.4rem;">
+          <i class="fas fa-clock"></i> Last bill: Apr 02, 2026
+        </div>
+      </div>
+
+      <!-- Chart (simple bar) -->
+      <div class="chart-container" style="margin-top: 1.2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+          <span style="font-weight: 500; color: #0e3649; font-size: 0.9rem;"><i class="fas fa-chart-simple" style="margin-right: 6px; color:#1f7f9f;"></i>Monthly Visits</span>
+          <span style="font-size:0.7rem; color:#558296;">Jan–Apr 2026</span>
+        </div>
+        <canvas id="visitChart" width="300" height="150"></canvas>
+      </div>
+
+      <!-- Assigned Doctor extra (visible) -->
+      <div style="margin-top: 1.2rem; background: #f4faff; border-radius: 2rem; padding: 0.8rem 1.4rem; display: flex; align-items: center; justify-content: space-between; border: 1px solid #e4eff6;">
+        <span style="font-weight: 500; color:#0c3447;"><i class="fas fa-user-md" style="margin-right: 8px; color:#1f7f9f;"></i>Primary Doctor</span>
+        <span style="font-weight: 600; color:#0a4b62;">Dr. Samina Ali (Cardiology)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DELETE ACCOUNT (separate) ========== -->
+  <div class="delete-section">
+    <button class="btn-icon danger" id="deleteAccountBtn2" style="padding: 0.6rem 1.8rem; font-size:0.9rem;">
+      <i class="fas fa-trash-can"></i> Delete Account
+    </button>
+  </div>
+
+  <!-- tiny alert / demo message -->
+  <div style="margin-top: 1.2rem; font-size:0.75rem; color:#558296; text-align: center; border-top: 1px solid #dce9f2; padding-top: 1rem;">
+    <i class="fas fa-circle-info"></i>MEDICORE_HMS · all data is simulated
+  </div>
+</div>
+
+<script>
+    src="{% static 'patients/js/dashboard.js' %}"
+</script>
+</body>
+</html>
