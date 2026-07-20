@@ -1,0 +1,180 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · MediManage Pro</title>
+  <!-- Font Awesome -->\
+        <link rel="stylesheet" href="{% static 'users/css/admin_dashboard.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Chart.js -->
+  <style>
+   
+  </style>
+</head>
+<body>
+
+<div class="admin-container">
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="header-left">
+      <i class="fas fa-shield-halved"></i>
+      <h1>Admin <span>· Control</span></h1>
+    </div>
+    <div class="admin-badge">
+      <i class="fas fa-user-cog"></i>
+      <span class="name">Dr. Ayesha</span>
+      <span style="font-size:0.7rem; color:#558296;">(super admin)</span>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats-grid">
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-content"><div class="label">Total Users</div><div class="value">184</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-user-md"></i></div><div class="stat-content"><div class="label">Doctors</div><div class="value">12</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-hospital-user"></i></div><div class="stat-content"><div class="label">Patients</div><div class="value">156</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-calendar-check"></i></div><div class="stat-content"><div class="label">Appointments</div><div class="value">43</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-file-medical"></i></div><div class="stat-content"><div class="label">Reports</div><div class="value">89</div></div></div>
+    <div class="stat-card"><div class="stat-icon"><i class="fas fa-file-invoice-dollar"></i></div><div class="stat-content"><div class="label">Billing</div><div class="value">$14.2k</div></div></div>
+  </section>
+
+  <!-- TWO COLUMN: left = tables, right = create + chart + extra -->
+  <div class="two-col">
+
+    <!-- LEFT COLUMN: tables -->
+    <div class="left-col">
+
+      <!-- USERS TABLE -->
+      <div class="panel">
+        <div class="panel-title"><i class="fas fa-users"></i> All Users</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Name</th><th>Email</th><th>Role</th><th></th></tr>
+            <tr><td>Ahmed Raza</td><td>ahmed@mail.com</td><td><span class="badge-role">Patient</span></td><td><button class="btn-sm"><i class="fas fa-eye"></i></button></td></tr>
+            <tr><td>Dr. Samina</td><td>samina@clinic.com</td><td><span class="badge-role">Doctor</span></td><td><button class="btn-sm"><i class="fas fa-eye"></i></button></td></tr>
+            <tr><td>Fatima Noor</td><td>fatima@mail.com</td><td><span class="badge-role">Patient</span></td><td><button class="btn-sm"><i class="fas fa-eye"></i></button></td></tr>
+            <tr><td>Dr. Usman</td><td>usman@clinic.com</td><td><span class="badge-role">Doctor</span></td><td><button class="btn-sm"><i class="fas fa-eye"></i></button></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- DOCTORS TABLE + create inline -->
+      <div class="panel" style="margin-top: 1.2rem;">
+        <div class="panel-title"><i class="fas fa-user-md"></i> Doctors</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Name</th><th>Email</th><th>Specialty</th><th></th></tr>
+            <tr><td>Dr. Samina Ali</td><td>samina@clinic.com</td><td>Cardiology</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+            <tr><td>Dr. Usman Malik</td><td>usman@clinic.com</td><td>Neurology</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+            <tr><td>Dr. Nadia Khan</td><td>nadia@clinic.com</td><td>Pediatrics</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+          </table>
+        </div>
+        <!-- CREATE DOCTOR -->
+        <div class="create-form">
+          <div style="font-weight:600; font-size:0.85rem; color:#0e3649; margin-bottom:0.4rem;"><i class="fas fa-plus-circle" style="color:#1f7f9f;"></i> Create Doctor</div>
+          <div class="row">
+            <div class="field"><label>Name</label><input type="text" placeholder="Dr. Name" id="docName" value="Dr. Hina" /></div>
+            <div class="field"><label>Email</label><input type="email" placeholder="email" id="docEmail" value="hina@clinic.com" /></div>
+            <div class="field"><label>Password</label><input type="text" placeholder="••••" id="docPass" value="doc123" /></div>
+            <button class="btn-primary" id="createDocBtn"><i class="fas fa-user-plus"></i> Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATIENTS TABLE + create -->
+      <div class="panel" style="margin-top: 1.2rem;">
+        <div class="panel-title"><i class="fas fa-hospital-user"></i> Patients</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Name</th><th>Phone</th><th>Email</th><th></th></tr>
+            <tr><td>Ahmed Raza</td><td>0300-1234567</td><td>ahmed@mail.com</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+            <tr><td>Fatima Noor</td><td>0312-9876543</td><td>fatima@mail.com</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+            <tr><td>Ali Hassan</td><td>0345-1122334</td><td>ali@mail.com</td><td><button class="btn-sm"><i class="fas fa-edit"></i></button></td></tr>
+          </table>
+        </div>
+        <!-- CREATE PATIENT -->
+        <div class="create-form">
+          <div style="font-weight:600; font-size:0.85rem; color:#0e3649; margin-bottom:0.4rem;"><i class="fas fa-plus-circle" style="color:#1f7f9f;"></i> Create Patient</div>
+          <div class="row">
+            <div class="field"><label>Name</label><input type="text" placeholder="Full name" id="patName" value="Sara Khan" /></div>
+            <div class="field"><label>Phone</label><input type="text" placeholder="03xx-xxxxxxx" id="patPhone" value="0321-5566778" /></div>
+            <div class="field"><label>Password</label><input type="text" placeholder="••••" id="patPass" value="pat123" /></div>
+            <button class="btn-primary" id="createPatBtn"><i class="fas fa-user-plus"></i> Add</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN: appointments, reports, prescriptions, billing, chart -->
+    <div class="right-col">
+
+      <!-- APPOINTMENTS -->
+      <div class="panel">
+        <div class="panel-title"><i class="fas fa-calendar-alt"></i> All Appointments</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Patient</th><th>Doctor</th><th>Date</th></tr>
+            <tr><td>Ahmed Raza</td><td>Dr. Samina</td><td>Mar 12, 2026</td></tr>
+            <tr><td>Fatima Noor</td><td>Dr. Usman</td><td>Mar 18, 2026</td></tr>
+            <tr><td>Ali Hassan</td><td>Dr. Nadia</td><td>Mar 25, 2026</td></tr>
+            <tr><td>Sara Khan</td><td>Dr. Samina</td><td>Apr 02, 2026</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- REPORTS (documents) -->
+      <div class="panel" style="margin-top: 1.2rem;">
+        <div class="panel-title"><i class="fas fa-file-pdf"></i> Patient Reports (documents)</div>
+        <div style="display:flex; flex-direction:column; gap:0.3rem;">
+          <div style="display:flex; justify-content:space-between; background:#f4faff; padding:0.3rem 0.8rem; border-radius:40px;"><span><i class="fas fa-file-pdf" style="color:#c0392b;"></i> Ahmed_Raza_MRI.pdf</span><span style="font-size:0.7rem;">Mar 10, 2026</span></div>
+          <div style="display:flex; justify-content:space-between; background:#f4faff; padding:0.3rem 0.8rem; border-radius:40px;"><span><i class="fas fa-file-pdf" style="color:#c0392b;"></i> Fatima_Noor_BloodTest.pdf</span><span style="font-size:0.7rem;">Mar 15, 2026</span></div>
+          <div style="display:flex; justify-content:space-between; background:#f4faff; padding:0.3rem 0.8rem; border-radius:40px;"><span><i class="fas fa-file-image" style="color:#2980b9;"></i> Ali_Hassan_XRay.png</span><span style="font-size:0.7rem;">Mar 20, 2026</span></div>
+          <div style="display:flex; justify-content:space-between; background:#f4faff; padding:0.3rem 0.8rem; border-radius:40px;"><span><i class="fas fa-file-pdf" style="color:#c0392b;"></i> Sara_Khan_ECG.pdf</span><span style="font-size:0.7rem;">Apr 01, 2026</span></div>
+        </div>
+        <div style="margin-top:0.5rem;"><button class="btn-sm"><i class="fas fa-upload"></i> Upload report</button></div>
+      </div>
+
+      <!-- PRESCRIPTIONS & BILLING combined -->
+      <div class="panel" style="margin-top: 1.2rem;">
+        <div class="panel-title"><i class="fas fa-prescription-bottle"></i> Prescriptions & Billing</div>
+        <div style="display:flex; justify-content:space-between; background:#f4faff; border-radius:1rem; padding:0.3rem 0.8rem; margin-bottom:0.3rem;">
+          <span><i class="fas fa-prescription"></i> Amoxicillin 500mg</span><span>Dr. Samina</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; background:#f4faff; border-radius:1rem; padding:0.3rem 0.8rem; margin-bottom:0.3rem;">
+          <span><i class="fas fa-prescription"></i> Lisinopril 10mg</span><span>Dr. Usman</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; background:#f4faff; border-radius:1rem; padding:0.3rem 0.8rem; margin-bottom:0.6rem;">
+          <span><i class="fas fa-prescription"></i> Metformin 850mg</span><span>Dr. Nadia</span>
+        </div>
+        <div class="bill-total"><span>Total Billing (all patients)</span><span>$14,280.00</span></div>
+        <div class="doc-fee"><span>Doctor fees (pending)</span><span>$1,240.00</span></div>
+      </div>
+
+      <!-- CHART (simple bar) -->
+      <div class="chart-container" style="margin-top: 1.2rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.1rem;">
+          <span style="font-weight:500; color:#0e3649; font-size:0.9rem;"><i class="fas fa-chart-simple" style="margin-right:6px; color:#1f7f9f;"></i>Weekly Appointments</span>
+        </div>
+        <canvas id="apptChart" width="300" height="130"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-notes">
+    <span><i class="fas fa-database"></i> 184 users · 12 doctors · 156 patients</span>
+    <span><i class="fas fa-circle-check" style="color:#2a8f6a;"></i> all data simulated for demo</span>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{% static 'users/js/admin_dashboard.js' %}"></script>
+
+</body>
+</html>

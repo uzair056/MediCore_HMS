@@ -6,3 +6,6 @@ def register(request):
 def login(request):
     return render(request, "users/login.html")
 
+def admin_dashboard(request):
+    return render(request, "users/admin_dashboard.html")
+
