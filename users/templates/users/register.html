@@ -33,7 +33,7 @@
             type="text" 
             id="fullName" 
             name="name" 
-            placeholder="e.g. Ahmed Khan" 
+            placeholder="e.g. Muhammad Uzair" 
             required 
             aria-required="true"
           >
@@ -70,7 +70,7 @@
             placeholder="••••••••" 
             required 
             aria-required="true"
-            minlength="6"
+            minlength="1"
           >
           <button 
             type="button" 
@@ -87,18 +87,18 @@
 
       <!-- submit button -->
       <button type="submit" class="btn-register">
-        <i class="fas fa-user-check"></i> Sign up
+        <i class="fas fa-user-check"></i> Register
       </button>
 
       <!-- demo feedback (non-intrusive) -->
       <div class="demo-message" id="demoMessage">
         <i class="fas fa-info-circle"></i> 
-        <span id="messageText">Fill in the fields & click Sign up</span>
+        <span id="messageText">Fill in the fields & click Register</span>
       </div>
     </form>
 
     <div class="register-footer">
-      <i class="fas fa-arrow-right" style="margin-right: 4px;"></i> Already have an account? <a href="#">Log in</a>
+      <i class="fas fa-arrow-right" style="margin-right: 4px;"></i> Already have an account? <a href="{% url 'login' %}">Log in</a>
     </div>
   </div>
 

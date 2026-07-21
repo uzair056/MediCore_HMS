@@ -39,7 +39,7 @@
               placeholder="you@example.com"
               required
               aria-required="true"
-              value="demo@example.com"
+              value=""
             />
           </div>
           <span class="hint"
@@ -63,7 +63,7 @@
               required
               aria-required="true"
               minlength="4"
-              value="demo123"
+              value=""
             />
             <button
               type="button"
@@ -88,14 +88,14 @@
         <!-- dynamic message -->
         <div class="demo-message" id="demoMessage">
           <i class="fas fa-info-circle"></i>
-          <span id="messageText">Use demo@example.com / demo123</span>
+          <span id="messageText">Use strong password and correct information</span>
         </div>
       </form>
 
       <div class="login-footer">
         <span
           ><i class="fas fa-user-plus" style="margin-right: 6px"></i> Don't have
-          an account? <a href="#">Sign up</a></span
+          an account? <a href="{% url 'register' %}">Register</a></span
         >
         <span
           ><i class="fas fa-key" style="margin-right: 6px"></i>
