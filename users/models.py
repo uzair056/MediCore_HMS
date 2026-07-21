@@ -6,7 +6,7 @@ class User(models.Model):
         ("user", "User"),
         ("admin", "Admin"),
         ("doctor", "Doctor"),
-        ("receptionist", "Receptionist"),
+        ("patient", "Patient"),
     ]
 
     name = models.CharField(max_length=100)
@@ -15,7 +15,7 @@ class User(models.Model):
     role = models.CharField(
         max_length=20,
         choices=ROLE_CHOICES,
-        default="user"
+        default="patient"
     )
 
     created_at = models.DateTimeField(auto_now_add=True)

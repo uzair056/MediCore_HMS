@@ -33,8 +33,12 @@
         <span class="user-role">• ID: #P-1289</span>
       </div>
       <div class="action-buttons">
-        <button class="btn-icon logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
-        <button class="btn-icon danger" id="deleteAccountBtn"><i class="fas fa-trash-can"></i> Delete Account?</button>
+<form action="{% url 'logout' %}" method="POST" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn-icon logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+</form>        <button class="btn-icon danger" id="deleteAccountBtn"><i class="fas fa-trash-can"></i> Delete Account?</button>
       </div>
     </div>
   </header>

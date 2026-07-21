@@ -24,7 +24,7 @@ def store(request):
             name=request.POST.get("name"),
             email=request.POST.get("email"),
             password=make_password(request.POST.get("password")),            
-            role=request.POST.get("role", "user"),
+            role=request.POST.get("role", "patient"),
         )
 
         return redirect("login")  
