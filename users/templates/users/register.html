@@ -23,7 +23,8 @@
     </div>
 
     <!-- REGISTRATION FORM -->
-    <form id="registerForm" autocomplete="off" novalidate>
+    <form id="registerForm" autocomplete="off" novalidate action="{% url 'store' %}" method="post">
+      {% csrf_token %}
       <!-- NAME -->
       <div class="form-group">
         <label for="fullName"><i class="fas fa-user"></i> Full name</label>
