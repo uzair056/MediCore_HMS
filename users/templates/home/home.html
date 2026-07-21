@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediCore_HMS · Home</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background: #f0f7fc;
+      min-height: 100vh;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* ----- MAIN WRAPPER ----- */
+    .home-wrapper {
+      max-width: 1480px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.8rem 2.8rem 3rem;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(8px);
+      border-radius: 3.5rem;
+      box-shadow: 0 30px 70px -25px rgba(0, 40, 60, 0.25), 0 10px 30px rgba(0,0,0,0.02);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* ----- HEADER / NAV ----- */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem 2rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(180, 210, 230, 0.25);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-area i {
+      font-size: 2.8rem;
+      color: #1a7a9c;
+      background: linear-gradient(135deg, rgba(26, 122, 156, 0.12), rgba(26, 122, 156, 0.04));
+      padding: 0.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(26, 122, 156, 0.08);
+    }
+    .logo-area h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #072a3a;
+      letter-spacing: -0.5px;
+    }
+    .logo-area h1 span {
+      font-weight: 300;
+      color: #3b7a92;
+      font-size: 1.1rem;
+      margin-left: 6px;
+      background: rgba(59, 122, 146, 0.08);
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-actions a {
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: 0.2px;
+    }
+    .btn-login {
+      color: #1a5f7a;
+      background: white;
+      border: 2px solid #d4e5f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .btn-login:hover {
+      background: #f5faff;
+      border-color: #8bbdd6;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(26, 111, 141, 0.10);
+    }
+    .btn-register {
+      background: linear-gradient(135deg, #1a7a9c, #125a78);
+      color: white;
+      border: 2px solid #1a7a9c;
+      box-shadow: 0 8px 20px rgba(26, 122, 156, 0.30);
+    }
+    .btn-register:hover {
+      background: linear-gradient(135deg, #0f5f7a, #0b4a61);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(26, 122, 156, 0.35);
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4.5rem;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    .hero-text h2 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: #041f2c;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+    .hero-text h2 i {
+      color: #1f87aa;
+      margin-right: 0.2rem;
+    }
+    .hero-text .highlight {
+      background: linear-gradient(120deg, #d4ecf7 0%, #d4ecf7 45%, transparent 90%);
+      padding: 0 0.6rem 0 0.3rem;
+      border-radius: 0 12px 12px 0;
+    }
+    .hero-text .sub-highlight {
+      color: #1a7a9c;
+      font-weight: 300;
+      font-size: 2.2rem;
+      display: block;
+      margin-top: 0.1rem;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #2f5b6e;
+      margin: 1.5rem 0 2rem;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .hero-text p { margin-left: auto; margin-right: auto; }
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .hero-stats div {
+      background: white;
+      padding: 0.6rem 1.8rem 0.6rem 1.2rem;
+      border-radius: 60px;
+      box-shadow: 0 6px 18px rgba(0, 20, 30, 0.04);
+      border: 1px solid #e4eff6;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 600;
+      color: #0f3c52;
+      font-size: 1.05rem;
+    }
+    .hero-stats i {
+      color: #1f7f9f;
+      font-size: 1.3rem;
+    }
+
+    .hero-image {
+      background: linear-gradient(145deg, #e4f0f8, #cde1ed);
+      border-radius: 3.5rem;
+      padding: 2.5rem 1.8rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: 0 25px 50px -15px rgba(0, 40, 60, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: rgba(26, 122, 156, 0.05);
+      border-radius: 50%;
+    }
+    .hero-image i {
+      font-size: 7rem;
+      color: #1a6f8d;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-image .tag {
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #1f4b5e;
+      background: rgba(255,255,255,0.6);
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ----- STATS ROW (patients cured, international clients) ----- */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .stat-big {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      border: 1px solid #e4eff6;
+      box-shadow: 0 6px 18px rgba(0, 30, 50, 0.04);
+      transition: 0.2s;
+    }
+    .stat-big:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 40, 60, 0.06);
+    }
+    .stat-big .number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #072a3a;
+      line-height: 1.1;
+    }
+    .stat-big .number i {
+      color: #1a7a9c;
+      font-size: 2.2rem;
+      margin-right: 0.3rem;
+    }
+    .stat-big .label {
+      font-size: 1rem;
+      color: #3f6f84;
+      font-weight: 500;
+      margin-top: 0.2rem;
+    }
+
+    /* ----- SERVICES SECTION ----- */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #072a3a;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-title i {
+      color: #1a7a9c;
+      font-size: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      border: 1px solid #e4eff6;
+      transition: 0.25s;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #b8d6e7;
+      box-shadow: 0 16px 30px -10px rgba(26, 111, 141, 0.10);
+    }
+    .service-card i {
+      font-size: 2.8rem;
+      color: #1a7a9c;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .service-card h4 {
+      font-size: 1.1rem;
+      color: #072a3a;
+      margin-bottom: 0.3rem;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: #558296;
+      line-height: 1.5;
+    }
+
+    /* ----- SPECIALISTS (children + elderly) ----- */
+    .specialists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3.5rem;
+    }
+    .specialist-card {
+      background: white;
+      border-radius: 2.2rem;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid #e4eff6;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: 0.25s;
+    }
+    .specialist-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 40, 60, 0.06);
+      border-color: #b8d6e7;
+    }
+    .specialist-card i {
+      font-size: 3rem;
+      color: #1a7a9c;
+      background: rgba(26, 122, 156, 0.08);
+      padding: 0.7rem;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+    .specialist-card .info h4 {
+      font-size: 1.1rem;
+      color: #072a3a;
+    }
+    .specialist-card .info p {
+      font-size: 0.85rem;
+      color: #558296;
+      line-height: 1.4;
+    }
+
+    /* ----- EXERCISES SECTION ----- */
+    .exercises-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .exercise-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      border: 1px solid #e4eff6;
+      transition: 0.25s;
+    }
+    .exercise-card:hover {
+      transform: scale(1.02);
+      border-color: #b8d6e7;
+      box-shadow: 0 12px 24px rgba(0, 40, 60, 0.06);
+    }
+    .exercise-card i {
+      font-size: 2.6rem;
+      color: #1a7a9c;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .exercise-card h5 {
+      font-size: 1rem;
+      color: #072a3a;
+    }
+    .exercise-card p {
+      font-size: 0.8rem;
+      color: #558296;
+    }
+
+    /* ----- BRANCHES / MAP SECTION ----- */
+    .branch-section {
+      background: white;
+      border-radius: 3rem;
+      padding: 2.5rem 2.8rem 2.8rem;
+      margin: 2.5rem 0 2rem;
+      border: 1px solid #e4eff6;
+      box-shadow: 0 15px 40px rgba(0, 30, 50, 0.05);
+    }
+
+    .branch-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+    .branch-header h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #072a3a;
+    }
+    .branch-header h3 i {
+      color: #1f7f9f;
+      margin-right: 0.6rem;
+    }
+    .branch-header span {
+      font-size: 1rem;
+      color: #3b7a92;
+      background: #eaf3fa;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .map-card {
+      background: #f6fbfe;
+      border-radius: 2.2rem;
+      padding: 1.6rem 0.8rem 1.4rem;
+      text-align: center;
+      border: 1px solid #e4eff6;
+      transition: 0.25s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1a7a9c, #6bb5d3);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .map-card:hover::before {
+      opacity: 1;
+    }
+    .map-card:hover {
+      transform: translateY(-8px);
+      background: white;
+      border-color: #b8d6e7;
+      box-shadow: 0 20px 40px -12px rgba(26, 111, 141, 0.15);
+    }
+    .map-card .flag-icon {
+      font-size: 3.2rem;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .map-card .country-name {
+      font-weight: 700;
+      color: #0c3447;
+      font-size: 1.1rem;
+    }
+    .map-card .city-name {
+      font-size: 0.85rem;
+      color: #558296;
+      margin-top: 0.15rem;
+    }
+    .map-card .branch-badge {
+      display: inline-block;
+      background: #d4ecf7;
+      padding: 0.15rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1a5f7a;
+      margin-top: 0.4rem;
+    }
+
+    .map-visual {
+      margin-top: 2.2rem;
+      background: linear-gradient(135deg, #e3eef7, #d4e5f0);
+      border-radius: 3.5rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: inset 0 2px 10px rgba(255,255,255,0.3);
+    }
+    .map-visual .globe {
+      font-size: 2.6rem;
+      color: #1a6f8d;
+    }
+    .map-visual .dots {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .map-visual .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #1a6f8d;
+      opacity: 0.25;
+      transition: 0.2s;
+    }
+    .map-visual .dot.active {
+      opacity: 1;
+      background: #0e5b78;
+      box-shadow: 0 0 0 6px rgba(26, 111, 141, 0.12);
+    }
+    .map-visual .dot:hover {
+      transform: scale(1.3);
+    }
+    .map-visual .label {
+      font-size: 0.85rem;
+      color: #1f4b5e;
+      font-weight: 600;
+      background: rgba(255,255,255,0.5);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ----- FOOTER ----- */
+    .home-footer {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid rgba(180, 210, 230, 0.3);
+      padding-top: 2rem;
+      font-size: 0.95rem;
+      color: #3f6f84;
+    }
+    .home-footer i {
+      margin: 0 0.3rem;
+      color: #1f7f9f;
+    }
+    .home-footer .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .home-footer .social-links a {
+      color: #3f6f84;
+      transition: 0.2s;
+      font-size: 1.3rem;
+    }
+    .home-footer .social-links a:hover {
+      color: #1a7a9c;
+      transform: translateY(-2px);
+    }
+
+    /* ----- RESPONSIVENESS ----- */
+    @media (max-width: 650px) {
+      body { padding: 0.8rem; }
+      .home-wrapper { padding: 1.2rem 1.2rem 2rem; border-radius: 2rem; }
+      .hero-text h2 { font-size: 2.4rem; }
+      .hero-text .sub-highlight { font-size: 1.6rem; }
+      .nav-actions a { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+      .logo-area h1 { font-size: 1.6rem; }
+      .branch-section { padding: 1.5rem; }
+      .map-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+      .hero-image i { font-size: 4.5rem; }
+      .hero-stats div { padding: 0.4rem 1rem; font-size: 0.85rem; }
+      .specialist-card { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 450px) {
+      .home-wrapper { padding: 0.8rem; }
+      .hero-text h2 { font-size: 1.9rem; }
+      .map-card { padding: 1rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="home-wrapper">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="logo-area">
+      <i class="fas fa-heartbeat"></i>
+      <h1>MediCore<span>_HMS</span></h1>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="#" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>
+        <i class="fas fa-stethoscope"></i> Smart <br />
+        <span class="highlight">Healthcare</span>
+        <span class="sub-highlight">Management</span>
+      </h2>
+      <p>
+        <i class="fas fa-check-circle" style="color:#1f7f9f;"></i> 
+        Seamless doctors &amp; patients management across 6 countries. 
+        Trusted by 5000+ medical professionals.
+      </p>
+      <div class="hero-stats">
+        <div><i class="fas fa-user-md"></i> 200+ Doctors</div>
+        <div><i class="fas fa-hospital-user"></i> 2.5k Patients</div>
+        <div><i class="fas fa-globe-asia"></i> 6 Branches</div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <i class="fas fa-hospital"></i>
+      <span class="tag"><i class="fas fa-map-pin"></i> Global network · 24/7 care</span>
+      <div style="margin-top:0.6rem; font-size:0.9rem; color:#1f4b5e; font-weight:500; position:relative; z-index:1;">
+        <i class="fas fa-arrow-right"></i> 6 countries · 19 clinics
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== STATS ROW: Patients Cured + International Clients ========== -->
+  <div class="stats-row">
+    <div class="stat-big">
+      <div class="number"><i class="fas fa-heart" style="color:#e74c3c;"></i> 12,450+</div>
+      <div class="label">Patients Cured</div>
+    </div>
+    <div class="stat-big">
+      <div class="number"><i class="fas fa-globe-americas" style="color:#2ecc71;"></i> 85+</div>
+      <div class="label">International Clients</div>
+    </div>
+    <div class="stat-big">
+      <div class="number"><i class="fas fa-user-md" style="color:#3498db;"></i> 200+</div>
+      <div class="label">Expert Doctors</div>
+    </div>
+    <div class="stat-big">
+      <div class="number"><i class="fas fa-star" style="color:#f1c40f;"></i> 4.9/5</div>
+      <div class="label">Patient Rating</div>
+    </div>
+  </div>
+
+  <!-- ========== OUR SERVICES ========== -->
+  <div class="section-title"><i class="fas fa-concierge-bell"></i> Our Premium Services</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <i class="fas fa-stethoscope"></i>
+      <h4>General Checkup</h4>
+      <p>Comprehensive health assessments with advanced diagnostics.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-heartbeat"></i>
+      <h4>Cardiology</h4>
+      <p>Expert heart care with modern treatment &amp; monitoring.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-brain"></i>
+      <h4>Neurology</h4>
+      <p>Specialized care for brain, spine &amp; nervous system.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-baby"></i>
+      <h4>Pediatrics</h4>
+      <p>Gentle &amp; expert care for children of all ages.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-bone"></i>
+      <h4>Orthopedics</h4>
+      <p>Bone, joint &amp; muscle treatment with rehabilitation.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-lungs"></i>
+      <h4>Pulmonology</h4>
+      <p>Advanced respiratory care &amp; lung health management.</p>
+    </div>
+  </div>
+
+  <!-- ========== SPECIALISTS: Children + Elderly ========== -->
+  <div class="section-title"><i class="fas fa-user-doctor"></i> Our Specialists</div>
+  <div class="specialists-grid">
+    <div class="specialist-card">
+      <i class="fas fa-baby"></i>
+      <div class="info">
+        <h4>👶 Children Specialists</h4>
+        <p>Pediatricians with 15+ years experience in child health, growth tracking, and vaccinations.</p>
+      </div>
+    </div>
+    <div class="specialist-card">
+      <i class="fas fa-user-astronaut"></i>
+      <div class="info">
+        <h4>🧓 Elderly Specialists</h4>
+        <p>Geriatric care experts focusing on age-related conditions, mobility, and mental wellness.</p>
+      </div>
+    </div>
+    <div class="specialist-card">
+      <i class="fas fa-female"></i>
+      <div class="info">
+        <h4>👩 Women's Health</h4>
+        <p>Dedicated care for women's reproductive health, maternity, and hormonal balance.</p>
+      </div>
+    </div>
+    <div class="specialist-card">
+      <i class="fas fa-dumbbell"></i>
+      <div class="info">
+        <h4>💪 Sports Medicine</h4>
+        <p>Injury prevention, performance optimization, and rehabilitation for athletes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== EXERCISES ========== -->
+  <div class="section-title"><i class="fas fa-dumbbell"></i> Recommended Exercises</div>
+  <div class="exercises-grid">
+    <div class="exercise-card">
+      <i class="fas fa-walking"></i>
+      <h5>Daily Walking</h5>
+      <p>30 mins · improves heart health</p>
+    </div>
+    <div class="exercise-card">
+      <i class="fas fa-swimmer"></i>
+      <h5>Swimming</h5>
+      <p>Low impact · full body workout</p>
+    </div>
+    <div class="exercise-card">
+      <i class="fas fa-bicycle"></i>
+      <h5>Cycling</h5>
+      <p>Strengthens legs &amp; lungs</p>
+    </div>
+    <div class="exercise-card">
+      <i class="fas fa-hand-holding-heart"></i>
+      <h5>Yoga</h5>
+      <p>Flexibility &amp; mental peace</p>
+    </div>
+    <div class="exercise-card">
+      <i class="fas fa-weight-hanging"></i>
+      <h5>Strength Training</h5>
+      <p>Build muscle &amp; bone density</p>
+    </div>
+    <div class="exercise-card">
+      <i class="fas fa-running"></i>
+      <h5>Jogging</h5>
+      <p>Cardio &amp; endurance boost</p>
+    </div>
+  </div>
+
+  <!-- ========== BRANCHES / MAP SECTION ========== -->
+  <section class="branch-section">
+    <div class="branch-header">
+      <h3><i class="fas fa-globe-asia"></i> Our Global Branches</h3>
+      <span><i class="fas fa-location-dot"></i> 6 countries</span>
+    </div>
+
+    <div class="map-grid">
+      <div class="map-card">
+        <span class="flag-icon">🇺🇸</span>
+        <div class="country-name">USA</div>
+        <div class="city-name">New York</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 3 clinics</span>
+      </div>
+      <div class="map-card">
+        <span class="flag-icon">🇬🇧</span>
+        <div class="country-name">UK</div>
+        <div class="city-name">London</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 2 clinics</span>
+      </div>
+      <div class="map-card">
+        <span class="flag-icon">🇦🇪</span>
+        <div class="country-name">UAE</div>
+        <div class="city-name">Dubai</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 4 clinics</span>
+      </div>
+      <div class="map-card">
+        <span class="flag-icon">🇮🇳</span>
+        <div class="country-name">India</div>
+        <div class="city-name">Mumbai</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 5 clinics</span>
+      </div>
+      <div class="map-card">
+        <span class="flag-icon">🇩🇪</span>
+        <div class="country-name">Germany</div>
+        <div class="city-name">Berlin</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 2 clinics</span>
+      </div>
+      <div class="map-card">
+        <span class="flag-icon">🇦🇺</span>
+        <div class="country-name">Australia</div>
+        <div class="city-name">Sydney</div>
+        <span class="branch-badge"><i class="fas fa-building"></i> 3 clinics</span>
+      </div>
+    </div>
+
+    <div class="map-visual">
+      <span class="globe"><i class="fas fa-map-location-dot"></i></span>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+      </div>
+      <span class="label"><i class="fas fa-satellite-dish"></i> live · 6 active regions</span>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="home-footer">
+    <span><i class="fas fa-copyright"></i> 2026 MediCore_HMS — built for healthcare</span>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    <span>
+      <i class="fas fa-phone"></i> +1 (800) 555‑0199 &nbsp;|&nbsp; 
+      <i class="fas fa-envelope"></i> contact@medicore.com
+    </span>
+  </footer>
+
+</div>
+
+<!-- ========== SCRIPT ========== -->
+<script>
+  (function() {
+    console.log('🏥 MediCore_HMS · Premium Home page ready');
+
+    // Login / Register buttons
+    document.querySelectorAll('.btn-login, .btn-register').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const action = this.classList.contains('btn-login') ? 'Login' : 'Register';
+        alert(`🔐 ${action} page (demo) — would redirect to ${action.toLowerCase()} form.`);
+      });
+    });
+
+    // Branch cards click
+    document.querySelectorAll('.map-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const country = this.querySelector('.country-name')?.innerText || 'branch';
+        const city = this.querySelector('.city-name')?.innerText || '';
+        const clinics = this.querySelector('.branch-badge')?.innerText.trim() || 'multiple clinics';
+        alert(`📍 ${country} (${city})\n${clinics}\n\nView all doctors & appointments?`);
+      });
+    });
+
+    // Service cards click
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const service = this.querySelector('h4')?.innerText || 'service';
+        alert(`🩺 ${service} — detailed info (demo)`);
+      });
+    });
+
+    // Specialist cards click
+    document.querySelectorAll('.specialist-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const specialty = this.querySelector('h4')?.innerText || 'specialist';
+        alert(`👨‍⚕️ ${specialty} — view all specialists (demo)`);
+      });
+    });
+
+    // Exercise cards click
+    document.querySelectorAll('.exercise-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const exercise = this.querySelector('h5')?.innerText || 'exercise';
+        alert(`🏋️ ${exercise} — view routine & benefits (demo)`);
+      });
+    });
+
+    // Dot hover effect
+    document.querySelectorAll('.dot').forEach(dot => {
+      dot.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.5)';
+        this.style.transition = '0.15s';
+      });
+      dot.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

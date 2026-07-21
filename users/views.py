@@ -9,3 +9,5 @@ def login(request):
 def admin_dashboard(request):
     return render(request, "users/admin_dashboard.html")
 
+def home(request):
+    return render(request, "home/home.html")
