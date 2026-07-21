@@ -44,7 +44,7 @@ def user_login(request):
             request.session["user_name"] = user.name
             request.session["user_role"] = user.role
 
-            return redirect("home")
+            return redirect("dashboard")
 
         messages.error(request, "Invalid email or password")
         return redirect("login")
