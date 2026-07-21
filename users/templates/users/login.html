@@ -26,7 +26,8 @@
       </div>
 
       <!-- LOGIN FORM -->
-      <form id="loginForm" autocomplete="off" novalidate>
+      <form id="loginForm" autocomplete="off" novalidate  action="{% url 'user_login' %}" method="POST">
+           {% csrf_token %}
         <!-- EMAIL -->
         <div class="form-group">
           <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
