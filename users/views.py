@@ -50,3 +50,4 @@ def user_login(request):
         return redirect("login")
 
     return redirect("login")
+
