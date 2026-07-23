@@ -1,21 +1,6 @@
  (function () {
         console.log("🏥 MediCore_HMS · Premium Home page ready");
 
-        // Login / Register buttons
-        // document
-        //   .querySelectorAll(".btn-login, .btn-register")
-        //   .forEach((btn) => {
-        //     btn.addEventListener("click", function (e) {
-        //       e.preventDefault();
-        //       const action = this.classList.contains("btn-login")
-        //         ? "Login"
-        //         : "Register";
-        //       alert(
-        //         `🔐 ${action} page (demo) — would redirect to ${action.toLowerCase()} form.`,
-        //       );
-        //     });
-        //   });
-
         // Branch cards click
         document.querySelectorAll(".map-card").forEach((card) => {
           card.addEventListener("click", function () {
