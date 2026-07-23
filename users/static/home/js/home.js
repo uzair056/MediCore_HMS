@@ -71,83 +71,33 @@
 
 
     // doctor section
+let doctorDatabase = [];
 
-    // =============================================
-    // DOCTOR DATA (simulated database)
-    // =============================================
-    const doctorDatabase = [
-        {
-            id: 1,
-            name: "Dr. Ahmed Khan",
-            specialty: "Cardiologist",
-            experience: "12 years",
-            rating: 5,
-            reviews: 128,
-            available: true,
-            icon: "fa-heart",
-            color: "#e74c3c"
-        },
-        {
-            id: 2,
-            name: "Dr. Sara Ali",
-            specialty: "Dentist",
-            experience: "8 years",
-            rating: 5,
-            reviews: 94,
-            available: true,
-            icon: "fa-tooth",
-            color: "#3498db"
-        },
-        {
-            id: 3,
-            name: "Dr. Usman Malik",
-            specialty: "Neurologist",
-            experience: "15 years",
-            rating: 5,
-            reviews: 156,
-            available: false,
-            icon: "fa-brain",
-            color: "#9b59b6"
-        },
-        {
-            id: 4,
-            name: "Dr. Fatima Noor",
-            specialty: "Pediatrician",
-            experience: "10 years",
-            rating: 4,
-            reviews: 87,
-            available: true,
-            icon: "fa-baby",
-            color: "#2ecc71"
-        },
-        {
-            id: 5,
-            name: "Dr. Ali Hassan",
-            specialty: "Orthopedic Surgeon",
-            experience: "18 years",
-            rating: 5,
-            reviews: 203,
-            available: true,
-            icon: "fa-bone",
-            color: "#e67e22"
-        },
-        {
-            id: 6,
-            name: "Dr. Zara Khan",
-            specialty: "Dermatologist",
-            experience: "7 years",
-            rating: 4,
-            reviews: 62,
-            available: false,
-            icon: "fa-hand",
-            color: "#1abc9c"
+async function loadDoctors() {
+
+    console.log("loadDoctors called");
+
+    try {
+        const response = await axios.get("/doctors/api/");
+
+        console.log(response.data);
+
+        if (response.data.success) {
+            doctorDatabase = response.data.doctors;
+            renderDoctors(doctorDatabase);
         }
-    ];
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
     // =============================================
     // RENDER DOCTORS
     // =============================================
     function renderDoctors(doctors) {
+          console.log("renderDoctors", doctors);
+
         const grid = document.getElementById('doctorsGrid');
         const countDisplay = document.getElementById('doctorCount');
 
@@ -181,7 +131,7 @@
                         </span>
                     </div>
 
-                    <div class="doctor-name">${doc.name}</div>
+                    <div >${doc.name}</div>
                     <div class="doctor-specialty"><i class="fas fa-stethoscope" style="font-size:0.75rem;"></i> ${doc.specialty}</div>
 
                     <div class="doctor-experience">
@@ -228,38 +178,31 @@
     // =============================================
     // SHUFFLE / REFRESH (simulate live update)
     // =============================================
-    function refreshDoctors() {
-        // Simulate dynamic update: toggle some availability randomly
-        const updated = doctorDatabase.map(doc => ({
-            ...doc,
-            available: Math.random() > 0.25 // 75% chance to be available
-        }));
+  function refreshDoctors() {
 
-        // Sort: available first
-        updated.sort((a, b) => (a.available === b.available) ? 0 : a.available ? -1 : 1);
+    const btn = document.getElementById("refreshDoctors");
 
-        renderDoctors(updated);
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
 
-        // Show refresh feedback
-        const btn = document.getElementById('refreshDoctors');
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
-        setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-rotate"></i> Refresh';
-        }, 800);
+    loadDoctors();
 
-        console.log('🔄 Doctors refreshed (simulated live update)');
-    }
+    setTimeout(() => {
+
+        btn.innerHTML = '<i class="fas fa-rotate"></i> Refresh';
+
+    }, 800);
+
+}
 
     // =============================================
     // INITIAL RENDER
     // =============================================
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initial: sort available first
-        const sorted = [...doctorDatabase].sort((a, b) => (a.available === b.available) ? 0 : a.available ? -1 : 1);
-        renderDoctors(sorted);
+document.addEventListener("DOMContentLoaded", function () {
 
-        // Refresh button
-        document.getElementById('refreshDoctors').addEventListener('click', refreshDoctors);
+    loadDoctors();
 
-        console.log('👨‍⚕️ Live Doctors section ready');
-    });
+    document
+        .getElementById("refreshDoctors")
+        .addEventListener("click", refreshDoctors);
+
+});

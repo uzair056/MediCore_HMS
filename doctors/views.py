@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .models import Doctor
@@ -31,3 +32,28 @@ def doctor_login(request):
             })
 
     return render(request, "doctors/doctor_login.html")
+
+
+
+def doctor_list(request):
+    doctors = Doctor.objects.all()
+
+    data = []
+    for doctor in doctors:
+        data.append({
+            "id": doctor.id,
+            "name": doctor.name,
+            "email": doctor.email,
+            "specialty": doctor.specialization,
+            "experience": f"{doctor.years_of_exp} years",
+            "rating": 5,
+            "reviews": 0,
+            "available": True,
+            "icon": "fa-user-doctor",
+            "color": "#e74c3c",
+        })
+
+    return JsonResponse({
+        "success": True,
+        "doctors": data
+    })
